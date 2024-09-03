@@ -1,5 +1,6 @@
 "use client";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+
+import { redirect } from "next/navigation";
 
 interface PageProps {
   searchParams: {
@@ -8,7 +9,13 @@ interface PageProps {
 }
 
 const Search = ({ searchParams }: PageProps) => {
-  console.log(searchParams);
+  const query = searchParams.q;
+  console.log(query);
+
+  if (Array.isArray(query) || !query) {
+    return redirect("/");
+  }
+
   return <div>Search</div>;
 };
 
