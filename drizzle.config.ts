@@ -1,10 +1,13 @@
 import type { Config } from "drizzle-kit";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export default {
-  driver: "pg",
+  dialect: "postgresql",
   schema: "./src/db/schema.ts",
   dbCredentials: {
-    connectionString: process.env.NEONDB!,
+    url: process.env.DATABASE_URL!,
   },
   out: "./drizzle",
 } satisfies Config;
