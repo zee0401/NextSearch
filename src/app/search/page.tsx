@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { productsTable } from "@/db/schema";
+import { vectorize } from "@/lib/vectorize";
 import { sql } from "drizzle-orm";
 import { redirect } from "next/navigation";
 
@@ -29,6 +30,10 @@ const Search = async ({ searchParams }: PageProps) => {
         .join(" & ")}))`
     )
     .limit(3);
+
+  if (products.length < 3) {
+    const vector = await vectorize(query);
+  }
   return <div>{JSON.stringify(products)}</div>;
 };
 

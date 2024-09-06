@@ -49,7 +49,7 @@ export default function RootLayout({
               <Icons.Sparkles className="h-16 w-16" />
 
               <h1 className="tracking-tight text-4xl sm:text-6xl font-bold">
-                Interactive Search
+                MagicSearch
               </h1>
 
               <p className="max-w-xl text-center text-lg text-slate-700">
@@ -59,6 +59,7 @@ export default function RootLayout({
 
               <div className="mx-auto mt-16 w-full max-w-2xl flex flex-col">
                 <SearchBar />
+
                 {children}
               </div>
             </div>
